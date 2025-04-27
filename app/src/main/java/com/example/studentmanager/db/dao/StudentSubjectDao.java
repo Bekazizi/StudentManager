@@ -13,6 +13,7 @@ import java.util.List;
 
 @Dao
 public interface StudentSubjectDao {
+
     @Insert
     void insertStudentSubject(StudentSubject studentSubject);
 
@@ -20,7 +21,7 @@ public interface StudentSubjectDao {
     void deleteStudentSubject(StudentSubject studentSubject);
 
     @Query("DELETE FROM student_subject WHERE studentId = :studentId AND subjectId = :subjectId")
-    void deleteStudentSubject(int studentId, int subjectId);
+    void deleteStudentSubjectByIds(int studentId, int subjectId);
 
     @Query("SELECT * FROM student_subject")
     LiveData<List<StudentSubject>> getAllStudentSubjects();

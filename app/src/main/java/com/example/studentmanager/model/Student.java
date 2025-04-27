@@ -11,13 +11,15 @@ import java.util.List;
 
 @Entity(tableName = "students")
 public class Student {
+
     @PrimaryKey(autoGenerate = true)
     private int id;
+
     private String name;
     private String email;
     private String phone;
     private String registrationDate;
-    private boolean isActive;  // isActive maydoni
+    private boolean isActive;
 
     @TypeConverters(Converters.class)
     private Date birthDate;
@@ -25,14 +27,19 @@ public class Student {
     @TypeConverters(Converters.class)
     private List<String> hobbies;
 
-    // Constructor
-    public Student(String name, String email, String phone, String registrationDate, boolean isActive) {
+    // Full constructor (birthDate va hobbies ham kiritiladi)
+    public Student(String name, String email, String phone, String registrationDate, boolean isActive, Date birthDate, List<String> hobbies) {
         this.name = name;
         this.email = email;
         this.phone = phone;
         this.registrationDate = registrationDate;
         this.isActive = isActive;
+        this.birthDate = birthDate;
+        this.hobbies = hobbies;
     }
+
+    // Empty constructor (Room uchun kerak bo'lishi mumkin)
+    public Student() {}
 
     // Getters and Setters
     public int getId() {
@@ -75,12 +82,12 @@ public class Student {
         this.registrationDate = registrationDate;
     }
 
-    public boolean isActive() {  // isActive uchun getter (Room talabi)
+    public boolean isActive() {
         return isActive;
     }
 
     public void setActive(boolean active) {
-        isActive = active;
+        this.isActive = active;
     }
 
     public Date getBirthDate() {

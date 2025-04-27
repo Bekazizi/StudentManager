@@ -14,36 +14,43 @@ import java.util.List;
 @Dao
 public interface StudentDao {
 
+    // Talabani qo'shish
     @Insert
-    void insertStudent(Student student);
+    void insert(Student student);
 
+    // Talabani yangilash
     @Update
-    void updateStudent(Student student);
+    void update(Student student);
 
+    // Talabani o'chirish
     @Delete
-    void deleteStudent(Student student);
+    void delete(Student student);
 
+    // Barcha talabalarni o'chirish
     @Query("DELETE FROM students")
-    void deleteAllStudents();
+    void deleteAll();
 
+    // Barcha talabalarni ID bo‘yicha tartiblab olish
     @Query("SELECT * FROM students ORDER BY id ASC")
     LiveData<List<Student>> getAllStudents();
 
+    // Id bo‘yicha bitta talabani olish
     @Query("SELECT * FROM students WHERE id = :studentId")
     LiveData<Student> getStudentById(int studentId);
 
-    @Query("SELECT * FROM students WHERE name LIKE :searchQuery OR email LIKE :searchQuery")
+    // Talabalarni ism yoki email bo‘yicha qidirish
+    @Query("SELECT * FROM students WHERE name LIKE '%' || :searchQuery || '%' OR email LIKE '%' || :searchQuery || '%'")
     LiveData<List<Student>> searchStudents(String searchQuery);
 
-    // StudentDao.java
+    // Umumiy talabalar soni
     @Query("SELECT COUNT(*) FROM students")
-    int getTotalStudents();
+    LiveData<Integer> getTotalStudents();
 
+    // Aktiv talabalar soni
     @Query("SELECT COUNT(*) FROM students WHERE isActive = 1")
-    int getActiveStudents();
+    LiveData<Integer> getActiveStudents();
 
+    // Noaktiv talabalar soni
     @Query("SELECT COUNT(*) FROM students WHERE isActive = 0")
-    int getInactiveStudents();
-
-
+    LiveData<Integer> getInactiveStudents();
 }

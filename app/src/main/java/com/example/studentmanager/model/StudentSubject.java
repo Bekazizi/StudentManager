@@ -17,6 +17,8 @@ import androidx.room.ForeignKey;
         })
 public class StudentSubject {
     private int grade;
+
+
     private int studentId;
     private int subjectId;
 

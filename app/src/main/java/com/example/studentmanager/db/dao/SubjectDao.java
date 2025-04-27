@@ -13,33 +13,44 @@ import java.util.List;
 
 @Dao
 public interface SubjectDao {
+
+    // Fan qo'shish
     @Insert
-    void insertSubject(Subject subject);
+    void insert(Subject subject);
 
+    // Fan yangilash
     @Update
-    void updateSubject(Subject subject);
+    void update(Subject subject);
 
+    // Fan o'chirish
     @Delete
-    void deleteSubject(Subject subject);
+    void delete(Subject subject);
 
+    // Barcha fanlarni o'chirish
     @Query("DELETE FROM subjects")
-    void deleteAllSubjects();
+    void deleteAll();
 
+    // Barcha fanlarni nomi bo'yicha tartiblab olish
     @Query("SELECT * FROM subjects ORDER BY subjectName ASC")
     LiveData<List<Subject>> getAllSubjects();
 
+    // Id bo'yicha fan olish
     @Query("SELECT * FROM subjects WHERE id = :subjectId")
     LiveData<Subject> getSubjectById(int subjectId);
 
-    @Query("SELECT * FROM subjects WHERE subjectName LIKE :searchQuery")
+    // Fanlarni nomi bo'yicha qidirish
+    @Query("SELECT * FROM subjects WHERE subjectName LIKE '%' || :searchQuery || '%'")
     LiveData<List<Subject>> searchSubjects(String searchQuery);
 
+    // Fanlar soni (LiveData ko'rinishida)
     @Query("SELECT COUNT(*) FROM subjects")
     LiveData<Integer> getSubjectsCount();
 
+    // Fanlar soni (oddiy int ko'rinishida, fon amallar uchun)
     @Query("SELECT COUNT(*) FROM subjects")
     int getTotalSubjects();
 
+    // Bitta fandagi o'quvchilar soni
     @Query("SELECT COUNT(*) FROM student_subject WHERE subjectId = :subjectId")
     int getEnrollmentCount(int subjectId);
 }
