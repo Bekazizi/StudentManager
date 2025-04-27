@@ -1,0 +1,44 @@
+<resources>
+    <string name="app_name">StudentManager</string>
+    <string name="appbar_scrolling_view_behavior">com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior</string>
+    <string name="tab_students">Talabalar</string>
+    <string name="tab_subjects">Fanlar</string>
+    <string name="search">Qidirish</string>
+    <string name="search_hint">Talaba yoki fan nomi</string>
+    <string name="search_action">Qidirish</string>
+    <string name="search_empty">Natijalar topilmadi</string>
+    <string name="search_cancel">Bekor qilish</string>
+    <string name="search_results">Qidiruv natijalari: %d</string>
+    <!-- Statistics Menu Item -->
+    <string name="statistics">Statistika</string>
+
+    <!-- Statistics Screen Titles -->
+    <string name="statistics_title">Umumiy statistika</string>
+    <string name="student_stats">Talabalar statistikasi</string>
+    <string name="subject_stats">Fanlar statistikasi</string>
+
+    <!-- Statistics Metrics -->
+    <string name="total_students">Jami talabalar: %d</string>
+    <string name="total_subjects">Jami fanlar: %d</string>
+    <string name="average_grade">O\'rtacha baho: %.1f</string>
+    <string name="top_subject">Eng yaxshi fan: %s</string>
+    <string name="top_student">Eng yaxshi talaba: %s</string>
+
+    <!-- Chart Labels -->
+    <string name="grade_distribution">Baho taqsimoti</string>
+    <string name="subject_performance">Fanlar bo\'yicha natijalar</string>
+    <string name="students_by_grade">Talabalar soni bo\'yicha baholar</string>
+
+    <!-- Time Periods -->
+    <string name="last_week">O\'tgan hafta</string>
+    <string name="last_month">O\'tgan oy</string>
+    <string name="last_year">O\'tgan yil</string>
+    <string name="all_time">Hammasi</string>
+    <string name="operation_success">Operation completed successfully</string>
+    <string name="operation_failed">Operation failed</string>
+    <!-- Qo'shimcha stringlar agar kerak bo'lsa -->
+    <string name="retry">Retry</string>
+    <string name="dismiss">Dismiss</string>
+    <string name="add_student">Add new student</string>
+    <string name="add_subject">Add new subject</string>
+</resources>
